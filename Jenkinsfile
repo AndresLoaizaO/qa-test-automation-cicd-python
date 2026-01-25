@@ -23,7 +23,7 @@ pipeline {
                 bat '''
                 docker stop restaurante-contenedor || exit 0
                 docker rm restaurante-contenedor || exit 0
-                docker run -d -p 8080:80 --name restaurante-contenedor restaurante-app
+                docker run -d -p 8081:80 --name restaurante-contenedor restaurante-app
                 '''
             }
         }
