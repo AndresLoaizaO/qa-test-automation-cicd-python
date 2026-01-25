@@ -20,9 +20,12 @@ pipeline {
         stage('Desplegar aplicación') {
             steps {
                 echo 'Desplegando contenedor Docker'
-                bat 'docker stop restaurante-contenedor || exit 0'
-                bat 'docker rm restaurante-contenedor || exit 0'
-                bat 'docker run -d -p 8081:80 --name restaurante-contenedor restaurante-app'
+
+                bat '''
+                docker stop restaurante-contenedor || exit 0
+                docker rm restaurante-contenedor || exit 0
+                docker run -d -p 8081:80 --name restaurante-contenedor restaurante-app
+                '''
             }
         }
     }
